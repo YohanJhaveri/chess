@@ -1,55 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 
-import BR from "images/BR.png";
-import BN from "images/BN.png";
-import BB from "images/BB.png";
-import BQ from "images/BQ.png";
-import BK from "images/BK.png";
-import BP from "images/BP.png";
-
-import WR from "images/WR.png";
-import WN from "images/WN.png";
-import WB from "images/WB.png";
-import WQ from "images/WQ.png";
-import WK from "images/WK.png";
-import WP from "images/WP.png";
-
-import { getSquare } from "utils";
-
-const IMAGE = {
-  BR,
-  BN,
-  BB,
-  BQ,
-  BK,
-  BP,
-  WR,
-  WN,
-  WB,
-  WQ,
-  WK,
-  WP,
-};
+import { getSquare, getImage } from "functions";
 
 function Board({ board, selectedSquare, possibleMoves, handleClick }) {
+  const black = "rgb(84, 115, 150)";
+  const white = "rgb(234, 233, 212)";
+
   return (
     <div>
       {board.map((row, x) => (
         <Row key={x}>
-          {row.map((square, y) => (
-            <Square
-              key={y}
-              color={(x + y) % 2 ? "rgb(84, 115, 150)" : "rgb(234, 233, 212)"}
-              possible={possibleMoves.includes(getSquare(x, y))}
-              selected={selectedSquare === getSquare(x, y)}
-              onClick={() => handleClick(getSquare(x, y))}
-            >
-              {square && <Image src={IMAGE[square]} alt={square} />}
-              {possibleMoves.includes(getSquare(x, y)) &&
-                (square ? <PossiblePiece /> : <PossibleEmpty />)}
-            </Square>
-          ))}
+          {row.map((piece, y) => {
+            const square = getSquare(x, y);
+            const image = getImage(piece);
+            const color = (x + y) % 2 ? black : white;
+            const selected = selectedSquare === square;
+
+            return (
+              <Square
+                key={y}
+                color={color}
+                selected={selected}
+                onClick={() => handleClick(square)}
+              >
+                {piece && <Image src={image} alt={piece} />}
+                {possibleMoves.includes(square) &&
+                  (piece ? <PossiblePiece /> : <PossibleEmpty />)}
+              </Square>
+            );
+          })}
         </Row>
       ))}
     </div>
@@ -61,8 +41,6 @@ const Square = styled.div`
   width: 64px;
   background: ${(props) => props.color};
   background: ${(props) => props.selected && "#53b1dc"};
-  background: ${(props) => props.previousOrigin && "lightsalmon"};
-  background: ${(props) => props.previousDestination && "salmon"};
   display: flex;
   justify-content: center;
   align-items: center;
