@@ -1,0 +1,25 @@
+html {
+  background: rgb(48, 46, 43);
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  outline: none;
+  font-family: "Avenir", sans-serif !important;
+}
