@@ -5,11 +5,7 @@ import Board from "components/Board";
 import Clock from "components/Clock";
 import Settings from "components/Settings";
 
-import {
-  makeDeepCopyBoard,
-  getCoordinates,
-  getPossibleMoves,
-} from "functions/helpers";
+import { makeDeepCopyBoard, getCoordinates, getPossibleMoves } from "functions";
 
 import { INITIAL } from "./constants";
 
