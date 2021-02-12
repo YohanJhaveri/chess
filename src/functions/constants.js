@@ -23,19 +23,4 @@ const SQUARES = [
 const RANKS = ["8", "7", "6", "5", "4", "3", "2", "1"];
 const FILES = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
-const AUDIO = {
-  gameStart: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/game-start.mp3",
-  gameEnd: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/game-end.mp3",
-  moveSelf: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/move-self.mp3",
-  moveOpponent:
-    "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/move-opponent.mp3",
-  moveCheck: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/move-check.mp3",
-  capture: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/capture.mp3",
-  castle: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/castle.mp3",
-  premove: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/premove.mp3",
-  notify: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/notify.mp3",
-  promote: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/promote.mp3",
-  tenseconds: "https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/tenseconds.mp3",
-};
-
-export { INITIAL, SQUARES, RANKS, FILES, AUDIO };
+export { INITIAL, SQUARES, RANKS, FILES };

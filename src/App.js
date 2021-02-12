@@ -11,16 +11,10 @@ import {
   getPossibleMoves,
 } from "functions/helpers";
 
-import { AUDIO, INITIAL } from "./functions/constants";
+import { INITIAL } from "./functions/constants";
 
 function App() {
   // GAME BASED
-  const moveSelfAudio = new Audio(AUDIO.moveSelf);
-  const moveOpponentAudio = new Audio(AUDIO.moveOpponent);
-  const captureAudio = new Audio(AUDIO.capture);
-  const gameStartAudio = new Audio(AUDIO.gameStart);
-  const gameEndAudio = new Audio(AUDIO.gameEnd);
-
   const [time, setTime] = useState(10);
   const [active, setActive] = useState(false);
   const [state, setState] = useState([INITIAL]);
@@ -71,29 +65,17 @@ function App() {
     setWinner("");
     setTurn("W");
     setActive(true);
-    gameStartAudio.play();
   };
 
   const handleEnd = (winner) => {
     setWinner(winner);
     setTurn("");
     setActive(false);
-    gameEndAudio.play();
   };
 
   const handleMove = (origin, destination) => {
     const [x0, y0] = getCoordinates(origin);
     const [x1, y1] = getCoordinates(destination);
-
-    if (state[state.length - 1][x1][y1] !== "") {
-      captureAudio.play();
-    } else {
-      if (turn === "W") {
-        moveSelfAudio.play();
-      } else {
-        moveOpponentAudio.play();
-      }
-    }
 
     setState((prev) => {
       const board = makeDeepCopyBoard(prev[prev.length - 1]);
