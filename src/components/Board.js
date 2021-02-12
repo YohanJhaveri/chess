@@ -50,14 +50,8 @@ function Board({ board, selectedSquare, possibleMoves, handleClick }) {
                 (square ? <PossiblePiece /> : <PossibleEmpty />)}
             </Square>
           ))}
-          {/* <Label>{RANKS[x]}</Label> */}
         </Row>
       ))}
-      {/* <Flex>
-        {FILES.map((value) => (
-          <Label>{value}</Label>
-        ))}
-      </Flex> */}
     </div>
   );
 }
@@ -128,22 +122,6 @@ const PossiblePiece = styled.div`
   border: 8px solid rgba(0, 0, 0, 0.1);
   border-radius: 48px;
   position: absolute;
-`;
-
-const Label = styled.div`
-  height: 64px;
-  width: 64px;
-  font-family: Avenir;
-  font-weight: 500;
-  font-size: 1.5rem;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Flex = styled.div`
-  display: flex;
 `;
 
 export default Board;
