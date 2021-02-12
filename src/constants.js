@@ -1,3 +1,17 @@
+import BR from "images/BR.png";
+import BN from "images/BN.png";
+import BB from "images/BB.png";
+import BQ from "images/BQ.png";
+import BK from "images/BK.png";
+import BP from "images/BP.png";
+
+import WR from "images/WR.png";
+import WN from "images/WN.png";
+import WB from "images/WB.png";
+import WQ from "images/WQ.png";
+import WK from "images/WK.png";
+import WP from "images/WP.png";
+
 const INITIAL = [
   ["BR", "BN", "BB", "BQ", "BK", "BB", "BN", "BR"],
   ["BP", "BP", "BP", "BP", "BP", "BP", "BP", "BP"],
@@ -20,7 +34,22 @@ const SQUARES = [
   ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
 ];
 
+const IMAGES = {
+  BR,
+  BN,
+  BB,
+  BQ,
+  BK,
+  BP,
+  WR,
+  WN,
+  WB,
+  WQ,
+  WK,
+  WP,
+};
+
 const RANKS = ["8", "7", "6", "5", "4", "3", "2", "1"];
 const FILES = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
-export { INITIAL, SQUARES, RANKS, FILES };
+export { INITIAL, SQUARES, IMAGES, RANKS, FILES };

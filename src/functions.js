@@ -1,4 +1,4 @@
-import { SQUARES, RANKS, FILES } from "./functions/constants";
+import { IMAGES, SQUARES, RANKS, FILES } from "./constants";
 
 const makeDeepCopyBoard = (original) => {
   return [
@@ -22,6 +22,10 @@ const getCoordinates = (square) => {
 
 const getSquare = (x, y) => {
   return SQUARES[x][y];
+};
+
+const getImage = (piece) => {
+  return IMAGES[piece];
 };
 
 const isCoordinateValid = (x, y) => {
@@ -126,21 +130,33 @@ const isSquareAttacked = (board, x, y, color) => {
 
     // pawn
     if (color === "W") {
-      if (isCoordinateValid(x - 1, y + 1) && board[x - 1][y + 1].charAt(1) === "P") {
+      if (
+        isCoordinateValid(x - 1, y + 1) &&
+        board[x - 1][y + 1].charAt(1) === "P"
+      ) {
         return true;
       }
 
-      if (isCoordinateValid(x - 1, y - 1) && board[x - 1][y - 1].charAt(1) === "P") {
+      if (
+        isCoordinateValid(x - 1, y - 1) &&
+        board[x - 1][y - 1].charAt(1) === "P"
+      ) {
         return true;
       }
     }
 
     if (color === "B") {
-      if (isCoordinateValid(x + 1, y + 1) && board[x + 1][y + 1].charAt(1) === "P") {
+      if (
+        isCoordinateValid(x + 1, y + 1) &&
+        board[x + 1][y + 1].charAt(1) === "P"
+      ) {
         return true;
       }
 
-      if (isCoordinateValid(x + 1, y - 1) && board[x + 1][y - 1].charAt(1) === "P") {
+      if (
+        isCoordinateValid(x + 1, y - 1) &&
+        board[x + 1][y - 1].charAt(1) === "P"
+      ) {
         return true;
       }
     }
@@ -379,7 +395,8 @@ const getPossibleMovesKing = (board, x, y, color) => {
   for (const move of moves) {
     if (isCoordinateValid(...move)) {
       if (
-        (board[move[0]][move[1]] === "" || board[move[0]][move[1]].charAt(0) !== color) &&
+        (board[move[0]][move[1]] === "" ||
+          board[move[0]][move[1]].charAt(0) !== color) &&
         isMovePossible(board, [x, y], move, color)
       ) {
         possible.push(getSquare(...move));
@@ -445,4 +462,10 @@ const getPossibleMoves = (board, square) => {
   }
 };
 
-export { makeDeepCopyBoard, getCoordinates, getSquare, getPossibleMoves };
+export {
+  getImage,
+  getSquare,
+  getCoordinates,
+  getPossibleMoves,
+  makeDeepCopyBoard,
+};

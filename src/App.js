@@ -11,7 +11,7 @@ import {
   getPossibleMoves,
 } from "functions/helpers";
 
-import { INITIAL } from "./functions/constants";
+import { INITIAL } from "./constants";
 
 function App() {
   // GAME BASED
