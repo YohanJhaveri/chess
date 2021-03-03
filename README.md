@@ -1,1 +1,3 @@
 ### Chess
+
+The classic game
